@@ -45,3 +45,30 @@ Dùng cùng dữ liệu, model và câu hỏi cho cả ba cấu hình. Tách **1
 | Cách nộp bài | [SUBMISSION.md](SUBMISSION.md) |
 
 [data/format-example.json](data/format-example.json) chỉ minh họa định dạng, không phải corpus đủ điều kiện. Phần xử lý và benchmark do bạn tự hiện thực; không bắt buộc xây chatbot.
+
+---
+
+## Bài làm: Python 3.13 Docs + ChromaDB
+
+Corpus: 10 file tài liệu Python 3.13 (6 Tutorial + 4 Library), 117 đơn vị trang ≥1.500 ký tự. Embedding local `sentence-transformers/all-MiniLM-L6-v2` (384 chiều), vector store ChromaDB 1.5.9 persistent (cosine, HNSW). Ba chiến lược: A fixed 500/50, B theo heading/đoạn ≤1.000, C = B + lọc `doc_type`.
+
+```bash
+cd starter
+python -m venv .venv            # Windows: .venv\Scripts\Activate.ps1 ; Unix: source .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m src.run all           # prepare -> validate -> ingest -> evaluate
+python scripts/make_audit_sheets.py   # sheet đọc để chấm thủ công
+python scripts/audit_summary.py       # kiểm tra metadata + tổng hợp nhãn
+python scripts/test_reingest.py       # kiểm tra nạp lại / tài liệu đổi (Chroma tạm)
+```
+
+Lần chạy đầu cần mạng để tải archive tài liệu (4,2 MB) và model (~90 MB). Không cần API key, chi phí 0.
+
+| Đường dẫn | Nội dung |
+|---|---|
+| `starter/src/` | ingestion, chunking, embeddings, store (Chroma), evaluation, run |
+| `data/manifest.json`, `data/pages.jsonl`, `data/corpus/` | manifest nguồn/quyền/đơn vị trang, text đã chuẩn hóa, file gốc |
+| `benchmark/questions.json` | 28 câu (22 dev / 6 test), gold page + evidence |
+| `artifacts/experiment_log.csv` | cấu hình và giả thuyết A/B/C |
+| `results/` | trace top-3, chỉ số, thống kê ingest, nhãn audit |
+| `report/individual/2A202603766_DoanDangKhoa.md` | báo cáo cá nhân |

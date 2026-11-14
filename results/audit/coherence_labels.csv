@@ -1,0 +1,31 @@
+position,strategy,chunk_id,score_0_2,reason,reviewed_by_student
+lib-csv#p002@745,A,A:lib-csv:p002:c001,1,"Starts mid-word (""l *dialect*""), ends mid-word (""Pa""); subject csv.reader() is missing, sentence about fmtparams readable",agree
+lib-csv#p002@745,B,B:lib-csv:p002:c000,2,Whole csv.reader() description with heading prefix; self-contained,agree
+lib-csv#p002@745,C,C:lib-csv:p002:c000,2,Same chunk as B,agree
+lib-functools#p002@822,A,A:lib-functools:p002:c001,1,"Starts inside a code example; target sentence about cached_property lookups is cut (""When it d"")",agree
+lib-functools#p002@822,B,B:lib-functools:p002:c001,2,Full paragraph on when cached_property runs and how to clear it; subject named,agree
+lib-functools#p002@822,C,C:lib-functools:p002:c001,2,Same chunk as B,agree
+lib-json#p002@1303,A,A:lib-json:p002:c002,1,"Starts mid-identifier (""gIO(""); decoding example complete but its first lines missing",agree
+lib-json#p002@1303,B,B:lib-json:p002:c001,2,Whole 'Decoding JSON' + 'Customizing decoding' examples intact,agree
+lib-json#p002@1303,C,C:lib-json:p002:c001,2,Same chunk as B,agree
+lib-venv#p002@740,A,A:lib-venv:p002:c001,1,"Starts mid-sentence (subject 'venv' missing), ends ""virtual en""",agree
+lib-venv#p002@740,B,B:lib-venv:p002:c000,2,Complete explanation of what python -m venv creates,agree
+lib-venv#p002@740,C,C:lib-venv:p002:c000,2,Same chunk as B,agree
+tut-controlflow#p002@970,A,A:tut-controlflow:p002:c002,1,Starts in example output; 'In most such cases' refers to context partially cut; ends mid-sentence,agree
+tut-controlflow#p002@970,B,B:tut-controlflow:p002:c000,2,range() explanation + complete examples up to the position,agree
+tut-controlflow#p002@970,C,C:tut-controlflow:p002:c000,2,Same chunk as B,agree
+tut-datastructures#p002@812,A,A:tut-datastructures:p002:c001,1,"Code example cut on both ends (""fruits.sor"")",agree
+tut-datastructures#p002@812,B,B:tut-datastructures:p002:c001,2,Full list-methods example plus the explanatory paragraph,agree
+tut-datastructures#p002@812,C,C:tut-datastructures:p002:c001,2,Same chunk as B,agree
+tut-errors#p002@861,A,A:tut-errors:p002:c001,1,"Bullet list of how try works cut mid-bullet (""If an exception occurs during execution of the"")",agree
+tut-errors#p002@861,B,B:tut-errors:p002:c000,1,"Intro + first 2 bullets complete, but the 'try works as follows' list continues in next chunk (bullets 3-4 missing)",agree
+tut-errors#p002@861,C,C:tut-errors:p002:c000,1,Same chunk as B,agree
+tut-inputoutput#p002@917,A,A:tut-inputoutput:p002:c001,1,"Starts mid-word, ends mid-word (""funct"")",agree
+tut-inputoutput#p002@917,B,B:tut-inputoutput:p002:c001,2,Full str()/repr() paragraph; ends with dangling 'Some examples:' but idea is complete,agree
+tut-inputoutput#p002@917,C,C:tut-inputoutput:p002:c001,2,Same chunk as B,agree
+tut-modules#p002@1448,A,A:tut-modules:p002:c003,1,Has 'from fibo import *' and its explanation but starts/ends mid-sentence,agree
+tut-modules#p002@1448,B,B:tut-modules:p002:c001,1,Ends right after 'from fibo import *' example; the explanation (names starting with _ excluded) is in the next chunk,agree
+tut-modules#p002@1448,C,C:tut-modules:p002:c001,1,Same chunk as B,agree
+tut-venv#p002@837,A,A:tut-venv:p002:c001,1,Starts with stray '.)'; pin-version sentence + example present,agree
+tut-venv#p002@837,B,B:tut-venv:p002:c000,1,Ends at 'followed by == and the version number:' - the example command is in the next chunk,agree
+tut-venv#p002@837,C,C:tut-venv:p002:c000,1,Same chunk as B,agree

@@ -1,0 +1,85 @@
+strategy,id,split,type,filter,hit1,hit3,gold_page_in_top3,top1_chunk,top1_score,top_pages
+A,d01,dev,direct,,0,1,1,A:tut-controlflow:p003:c005,0.7351,tut-controlflow#p3 | tut-controlflow#p3 | tut-controlflow#p3
+A,d02,dev,condition,,1,1,1,A:tut-controlflow:p009:c003,0.6683,tut-controlflow#p9 | tut-controlflow#p9 | tut-controlflow#p15
+A,d03,dev,direct,,0,0,1,A:tut-controlflow:p012:c002,0.7011,tut-controlflow#p12 | tut-controlflow#p14 | tut-controlflow#p13
+A,d04,dev,paraphrase,,0,1,1,A:tut-datastructures:p003:c001,0.6065,tut-datastructures#p3 | tut-datastructures#p3 | tut-datastructures#p3
+A,d05,dev,exception,,1,1,1,A:tut-datastructures:p007:c000,0.5265,tut-datastructures#p7 | tut-datastructures#p6 | lib-functools#p10
+A,d06,dev,condition,,0,0,1,A:tut-datastructures:p008:c001,0.7424,tut-datastructures#p8 | tut-datastructures#p8 | tut-datastructures#p6
+A,d07,dev,paraphrase,,0,0,1,A:tut-errors:p005:c007,0.6029,tut-errors#p5 | tut-errors#p5 | tut-errors#p5
+A,d08,dev,direct,,1,1,1,A:tut-errors:p009:c000,0.5362,tut-errors#p9 | tut-errors#p4 | tut-errors#p5
+A,d09,dev,direct,,1,1,1,A:tut-errors:p007:c005,0.7264,tut-errors#p7 | tut-errors#p8 | tut-errors#p7
+A,d10,dev,direct,,1,1,1,A:tut-modules:p004:c000,0.8256,tut-modules#p4 | tut-modules#p4 | tut-modules#p4
+A,d11,dev,condition,,0,0,1,A:tut-modules:p010:c003,0.7125,tut-modules#p10 | tut-modules#p9 | tut-modules#p2
+A,d12,dev,paraphrase,,0,0,1,A:tut-modules:p008:c001,0.5427,tut-modules#p8 | tut-modules#p3 | tut-modules#p3
+A,d13,dev,direct,,0,0,1,A:tut-inputoutput:p006:c000,0.5438,tut-inputoutput#p6 | tut-errors#p7 | tut-inputoutput#p6
+A,d14,dev,metadata_filter,"{""doc_type"": ""tutorial""}",0,0,1,A:tut-inputoutput:p009:c004,0.5992,tut-inputoutput#p9 | tut-inputoutput#p9 | tut-inputoutput#p9
+A,d15,dev,metadata_filter,"{""doc_type"": ""tutorial""}",0,0,1,A:lib-venv:p003:c006,0.6274,lib-venv#p3 | lib-venv#p8 | tut-venv#p1
+A,d16,dev,metadata_filter,"{""doc_type"": ""library""}",0,0,1,A:lib-venv:p001:c000,0.6945,lib-venv#p1 | lib-venv#p3 | lib-venv#p9
+A,d17,dev,direct,,1,1,1,A:lib-json:p015:c002,0.7266,lib-json#p15 | lib-json#p2 | lib-json#p15
+A,d18,dev,condition,,1,1,1,A:lib-json:p004:c000,0.7752,lib-json#p4 | lib-json#p14 | lib-json#p14
+A,d19,dev,paraphrase,,1,1,1,A:lib-functools:p002:c000,0.654,lib-functools#p2 | lib-functools#p2 | lib-functools#p2
+A,d20,dev,direct,,0,0,1,A:lib-functools:p014:c002,0.557,lib-functools#p14 | lib-functools#p13 | lib-functools#p15
+A,d21,dev,condition,,0,0,0,A:lib-csv:p006:c000,0.6903,lib-csv#p6 | lib-csv#p12 | lib-csv#p1
+A,d22,dev,metadata_filter,"{""doc_type"": ""library""}",1,1,1,A:lib-venv:p001:c003,0.5862,lib-venv#p1 | lib-venv#p10 | lib-venv#p1
+A,t01,test,condition,,0,0,1,A:tut-errors:p006:c004,0.6737,tut-errors#p6 | tut-errors#p6 | tut-errors#p6
+A,t02,test,direct,,0,0,1,A:tut-modules:p003:c003,0.627,tut-modules#p3 | lib-venv#p10 | tut-modules#p5
+A,t03,test,condition,,1,1,1,A:lib-csv:p002:c000,0.6455,lib-csv#p2 | lib-csv#p13 | lib-csv#p13
+A,t04,test,condition,,0,0,1,A:lib-functools:p006:c002,0.677,lib-functools#p6 | lib-functools#p5 | lib-functools#p4
+A,t05,test,metadata_filter,"{""doc_type"": ""library""}",0,1,1,A:lib-json:p001:c001,0.4906,lib-json#p1 | lib-json#p5 | lib-json#p10
+A,t06,test,metadata_filter,"{""doc_type"": ""tutorial""}",0,0,0,A:lib-venv:p004:c001,0.5902,lib-venv#p4 | lib-venv#p5 | lib-venv#p8
+B,d01,dev,direct,,1,1,1,B:tut-controlflow:p003:c001,0.7251,tut-controlflow#p3 | tut-controlflow#p3 | tut-controlflow#p3
+B,d02,dev,condition,,1,1,1,B:tut-controlflow:p009:c002,0.7033,tut-controlflow#p9 | tut-controlflow#p15 | lib-functools#p4
+B,d03,dev,direct,,1,1,1,B:tut-controlflow:p012:c002,0.6807,tut-controlflow#p12 | tut-controlflow#p14 | tut-controlflow#p12
+B,d04,dev,paraphrase,,1,1,1,B:tut-datastructures:p003:c001,0.6451,tut-datastructures#p3 | tut-datastructures#p3 | tut-datastructures#p1
+B,d05,dev,exception,,1,1,1,B:tut-datastructures:p007:c000,0.525,tut-datastructures#p7 | tut-datastructures#p8 | tut-datastructures#p7
+B,d06,dev,condition,,1,1,1,B:tut-datastructures:p008:c000,0.6747,tut-datastructures#p8 | tut-datastructures#p6 | tut-datastructures#p6
+B,d07,dev,paraphrase,,0,0,1,B:tut-errors:p007:c004,0.5625,tut-errors#p7 | tut-errors#p5 | tut-errors#p7
+B,d08,dev,direct,,0,1,1,B:tut-errors:p009:c001,0.6017,tut-errors#p9 | tut-errors#p9 | tut-errors#p7
+B,d09,dev,direct,,1,1,1,B:tut-errors:p007:c004,0.7503,tut-errors#p7 | tut-errors#p8 | tut-errors#p9
+B,d10,dev,direct,,1,1,1,B:tut-modules:p004:c000,0.8254,tut-modules#p4 | tut-modules#p4 | tut-modules#p4
+B,d11,dev,condition,,0,0,1,B:tut-modules:p009:c000,0.7165,tut-modules#p9 | tut-modules#p9 | tut-modules#p10
+B,d12,dev,paraphrase,,0,1,1,B:tut-modules:p002:c003,0.5518,tut-modules#p2 | tut-modules#p3 | tut-modules#p8
+B,d13,dev,direct,,0,1,1,B:tut-inputoutput:p006:c000,0.5563,tut-inputoutput#p6 | tut-inputoutput#p6 | tut-errors#p7
+B,d14,dev,metadata_filter,"{""doc_type"": ""tutorial""}",1,1,1,B:tut-inputoutput:p009:c002,0.6772,tut-inputoutput#p9 | tut-inputoutput#p9 | tut-inputoutput#p9
+B,d15,dev,metadata_filter,"{""doc_type"": ""tutorial""}",1,1,1,B:tut-venv:p001:c002,0.6478,tut-venv#p1 | lib-venv#p2 | lib-venv#p3
+B,d16,dev,metadata_filter,"{""doc_type"": ""library""}",0,0,0,B:lib-venv:p001:c000,0.6893,lib-venv#p1 | lib-venv#p10 | lib-venv#p2
+B,d17,dev,direct,,1,1,1,B:lib-json:p015:c001,0.6947,lib-json#p15 | lib-json#p2 | lib-json#p4
+B,d18,dev,condition,,0,1,1,B:lib-json:p014:c000,0.7218,lib-json#p14 | lib-json#p4 | lib-json#p11
+B,d19,dev,paraphrase,,1,1,1,B:lib-functools:p002:c000,0.5636,lib-functools#p2 | lib-functools#p2 | lib-functools#p2
+B,d20,dev,direct,,0,1,1,B:lib-functools:p014:c001,0.497,lib-functools#p14 | lib-functools#p11 | lib-functools#p13
+B,d21,dev,condition,,1,1,1,B:lib-csv:p004:c002,0.7213,lib-csv#p4 | lib-csv#p5 | lib-csv#p5
+B,d22,dev,metadata_filter,"{""doc_type"": ""library""}",0,1,1,B:lib-venv:p010:c001,0.5164,lib-venv#p10 | lib-venv#p1 | lib-venv#p2
+B,t01,test,condition,,1,1,1,B:tut-errors:p006:c002,0.5563,tut-errors#p6 | tut-errors#p6 | tut-controlflow#p3
+B,t02,test,direct,,0,1,1,B:tut-modules:p005:c001,0.6185,tut-modules#p5 | tut-modules#p3 | tut-modules#p3
+B,t03,test,condition,,1,1,1,B:lib-csv:p002:c000,0.5886,lib-csv#p2 | lib-csv#p13 | lib-csv#p8
+B,t04,test,condition,,1,1,1,B:lib-functools:p005:c000,0.6161,lib-functools#p5 | lib-functools#p6 | lib-functools#p6
+B,t05,test,metadata_filter,"{""doc_type"": ""library""}",0,1,1,B:tut-datastructures:p008:c001,0.5286,tut-datastructures#p8 | lib-json#p5 | lib-json#p1
+B,t06,test,metadata_filter,"{""doc_type"": ""tutorial""}",0,1,1,B:lib-venv:p005:c000,0.5826,lib-venv#p5 | lib-venv#p8 | tut-venv#p1
+C,d01,dev,direct,,1,1,1,C:tut-controlflow:p003:c001,0.7251,tut-controlflow#p3 | tut-controlflow#p3 | tut-controlflow#p3
+C,d02,dev,condition,,1,1,1,C:tut-controlflow:p009:c002,0.7033,tut-controlflow#p9 | tut-controlflow#p15 | lib-functools#p4
+C,d03,dev,direct,,1,1,1,C:tut-controlflow:p012:c002,0.6807,tut-controlflow#p12 | tut-controlflow#p14 | tut-controlflow#p12
+C,d04,dev,paraphrase,,1,1,1,C:tut-datastructures:p003:c001,0.6451,tut-datastructures#p3 | tut-datastructures#p3 | tut-datastructures#p1
+C,d05,dev,exception,,1,1,1,C:tut-datastructures:p007:c000,0.525,tut-datastructures#p7 | tut-datastructures#p8 | tut-datastructures#p7
+C,d06,dev,condition,,1,1,1,C:tut-datastructures:p008:c000,0.6747,tut-datastructures#p8 | tut-datastructures#p6 | tut-datastructures#p6
+C,d07,dev,paraphrase,,0,0,1,C:tut-errors:p007:c004,0.5625,tut-errors#p7 | tut-errors#p5 | tut-errors#p7
+C,d08,dev,direct,,0,1,1,C:tut-errors:p009:c001,0.6017,tut-errors#p9 | tut-errors#p9 | tut-errors#p7
+C,d09,dev,direct,,1,1,1,C:tut-errors:p007:c004,0.7503,tut-errors#p7 | tut-errors#p8 | tut-errors#p9
+C,d10,dev,direct,,1,1,1,C:tut-modules:p004:c000,0.8254,tut-modules#p4 | tut-modules#p4 | tut-modules#p4
+C,d11,dev,condition,,0,0,1,C:tut-modules:p009:c000,0.7165,tut-modules#p9 | tut-modules#p9 | tut-modules#p10
+C,d12,dev,paraphrase,,0,1,1,C:tut-modules:p002:c003,0.5518,tut-modules#p2 | tut-modules#p3 | tut-modules#p8
+C,d13,dev,direct,,0,1,1,C:tut-inputoutput:p006:c000,0.5563,tut-inputoutput#p6 | tut-inputoutput#p6 | tut-errors#p7
+C,d14,dev,metadata_filter,"{""doc_type"": ""tutorial""}",1,1,1,C:tut-inputoutput:p009:c002,0.6772,tut-inputoutput#p9 | tut-inputoutput#p9 | tut-inputoutput#p9
+C,d15,dev,metadata_filter,"{""doc_type"": ""tutorial""}",1,1,1,C:tut-venv:p001:c002,0.6478,tut-venv#p1 | tut-venv#p1 | tut-venv#p1
+C,d16,dev,metadata_filter,"{""doc_type"": ""library""}",0,0,0,C:lib-venv:p001:c000,0.6893,lib-venv#p1 | lib-venv#p10 | lib-venv#p2
+C,d17,dev,direct,,1,1,1,C:lib-json:p015:c001,0.6947,lib-json#p15 | lib-json#p2 | lib-json#p4
+C,d18,dev,condition,,0,1,1,C:lib-json:p014:c000,0.7218,lib-json#p14 | lib-json#p4 | lib-json#p11
+C,d19,dev,paraphrase,,1,1,1,C:lib-functools:p002:c000,0.5636,lib-functools#p2 | lib-functools#p2 | lib-functools#p2
+C,d20,dev,direct,,0,1,1,C:lib-functools:p014:c001,0.497,lib-functools#p14 | lib-functools#p11 | lib-functools#p13
+C,d21,dev,condition,,1,1,1,C:lib-csv:p004:c002,0.7213,lib-csv#p4 | lib-csv#p5 | lib-csv#p5
+C,d22,dev,metadata_filter,"{""doc_type"": ""library""}",0,1,1,C:lib-venv:p010:c001,0.5164,lib-venv#p10 | lib-venv#p1 | lib-venv#p2
+C,t01,test,condition,,1,1,1,C:tut-errors:p006:c002,0.5563,tut-errors#p6 | tut-errors#p6 | tut-controlflow#p3
+C,t02,test,direct,,0,1,1,C:tut-modules:p005:c001,0.6185,tut-modules#p5 | tut-modules#p3 | tut-modules#p3
+C,t03,test,condition,,1,1,1,C:lib-csv:p002:c000,0.5886,lib-csv#p2 | lib-csv#p13 | lib-csv#p8
+C,t04,test,condition,,1,1,1,C:lib-functools:p005:c000,0.6161,lib-functools#p5 | lib-functools#p6 | lib-functools#p6
+C,t05,test,metadata_filter,"{""doc_type"": ""library""}",1,1,1,C:lib-json:p005:c000,0.4801,lib-json#p5 | lib-json#p1 | lib-json#p11
+C,t06,test,metadata_filter,"{""doc_type"": ""tutorial""}",1,1,1,C:tut-venv:p001:c003,0.5172,tut-venv#p1 | tut-venv#p1 | tut-venv#p1
