@@ -1,0 +1,505 @@
+{
+  "description": "Benchmark for Python 3.13 docs subset. Written and split dev/test BEFORE any retrieval run. gold[].pages is filled by `python -m src.run validate`, which locates each evidence quote in the normalized page units (no retrieval involved).",
+  "split_rule": "Test questions were chosen from sections that no dev question targets (tut-errors 8.7 clean-up, tut-modules 6.1.2 search path, lib-csv reader(), lib-functools lru_cache, lib-json dumps keys note, tut-venv activation). Same documents appear in both splits -> leakage risk at document level, noted in report.",
+  "filter_rule": "filter = doc_type the user states up front (e.g. 'I am reading the tutorial' / 'in the library reference'); provided before retrieval, never derived from the gold source. Strategy C applies it only when present.",
+  "selection_criterion": "Decided before test: choose by dev Evidence Hit@3, tie-break dev Hit@1, then fewer chunks / less embed time.",
+  "questions": [
+    {
+      "id": "d01",
+      "split": "dev",
+      "type": "direct",
+      "question": "When does the else clause of a for loop run?",
+      "expected_answer": "After the loop finishes its final iteration, i.e. only if no break occurred.",
+      "gold": [
+        {
+          "source_id": "tut-controlflow",
+          "evidence_quote": "In a \"for\" loop, the \"else\" clause is executed after the loop finishes its final iteration, that is, if no break occurred.",
+          "pages": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d02",
+      "split": "dev",
+      "type": "condition",
+      "question": "Why does a function with a list as default argument keep accumulating values between calls?",
+      "expected_answer": "Default values are evaluated only once (at definition), so a mutable default like a list is shared across calls.",
+      "gold": [
+        {
+          "source_id": "tut-controlflow",
+          "evidence_quote": "The default value is evaluated only once. This makes a difference when the default is a mutable object such as a list, dictionary, or instances of most classes.",
+          "pages": [
+            9
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d03",
+      "split": "dev",
+      "type": "direct",
+      "question": "How do I mark function parameters as positional-only?",
+      "expected_answer": "Place them before a / (forward slash) in the parameter list.",
+      "gold": [
+        {
+          "source_id": "tut-controlflow",
+          "evidence_quote": "Positional-only parameters are placed before a \"/\" (forward-slash).",
+          "pages": [
+            12
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d04",
+      "split": "dev",
+      "type": "paraphrase",
+      "question": "What should I use instead of a plain list to get an efficient first-in first-out queue?",
+      "expected_answer": "collections.deque, designed for fast appends and pops from both ends.",
+      "gold": [
+        {
+          "source_id": "tut-datastructures",
+          "evidence_quote": "To implement a queue, use \"collections.deque\" which was designed to have fast appends and pops from both ends.",
+          "pages": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d05",
+      "split": "dev",
+      "type": "exception",
+      "question": "Why doesn't {} give me an empty set?",
+      "expected_answer": "{} creates an empty dictionary; use set() for an empty set.",
+      "gold": [
+        {
+          "source_id": "tut-datastructures",
+          "evidence_quote": "to create an empty set you have to use \"set()\", not \"{}\"; the latter creates an empty dictionary",
+          "pages": [
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d06",
+      "split": "dev",
+      "type": "condition",
+      "question": "Can a tuple be used as a dictionary key?",
+      "expected_answer": "Yes, if it contains only strings, numbers or tuples; not if it contains any mutable object.",
+      "gold": [
+        {
+          "source_id": "tut-datastructures",
+          "evidence_quote": "Tuples can be used as keys if they contain only strings, numbers, or tuples; if a tuple contains any mutable object either directly or indirectly, it cannot be used as a key.",
+          "pages": [
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d07",
+      "split": "dev",
+      "type": "paraphrase",
+      "question": "How can I suppress automatic exception chaining when I re-raise a different exception?",
+      "expected_answer": "Use `raise NewError from None`.",
+      "gold": [
+        {
+          "source_id": "tut-errors",
+          "evidence_quote": "It also allows disabling automatic exception chaining using the \"from None\" idiom:",
+          "pages": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d08",
+      "split": "dev",
+      "type": "direct",
+      "question": "How do I attach extra information to an exception after it was caught?",
+      "expected_answer": "Call the exception's add_note(note) method; notes are shown in the traceback.",
+      "gold": [
+        {
+          "source_id": "tut-errors",
+          "evidence_quote": "exceptions have a method \"add_note(note)\" that accepts a string and adds it to the exception's notes list.",
+          "pages": [
+            9
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d09",
+      "split": "dev",
+      "type": "direct",
+      "question": "How can I handle only some exception types contained in an ExceptionGroup?",
+      "expected_answer": "Use except* clauses, which extract matching exceptions from the group.",
+      "gold": [
+        {
+          "source_id": "tut-errors",
+          "evidence_quote": "By using \"except*\" instead of \"except\", we can selectively handle only the exceptions in the group that match a certain type.",
+          "pages": [
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d10",
+      "split": "dev",
+      "type": "direct",
+      "question": "Where does Python cache the compiled versions of modules?",
+      "expected_answer": "In the __pycache__ directory as module.<version>.pyc.",
+      "gold": [
+        {
+          "source_id": "tut-modules",
+          "evidence_quote": "Python caches the compiled version of each module in the \"__pycache__\" directory under the name \"module.*version*.pyc\"",
+          "pages": [
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d11",
+      "split": "dev",
+      "type": "condition",
+      "question": "What decides which submodules get imported by `from package import *`?",
+      "expected_answer": "The __all__ list defined in the package's __init__.py.",
+      "gold": [
+        {
+          "source_id": "tut-modules",
+          "evidence_quote": "if a package's \"__init__.py\" code defines a list named \"__all__\", it is taken to be the list of module names that should be imported when \"from package import *\" is encountered.",
+          "pages": [
+            9
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d12",
+      "split": "dev",
+      "type": "paraphrase",
+      "question": "How can one Python file work both as a runnable script and as an importable module?",
+      "expected_answer": "Put the script code under `if __name__ == \"__main__\":` so it only runs when executed as the main file.",
+      "gold": [
+        {
+          "source_id": "tut-modules",
+          "evidence_quote": "you can make the file usable as a script as well as an importable module, because the code that parses the command line only runs if the module is executed as the \"main\" file",
+          "pages": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d13",
+      "split": "dev",
+      "type": "direct",
+      "question": "Why is it recommended to open files with the with keyword?",
+      "expected_answer": "The file is properly closed after the block, even if an exception is raised.",
+      "gold": [
+        {
+          "source_id": "tut-inputoutput",
+          "evidence_quote": "The advantage is that the file is properly closed after its suite finishes, even if an exception is raised at some point.",
+          "pages": [
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d14",
+      "split": "dev",
+      "type": "metadata_filter",
+      "filter": {
+        "doc_type": "tutorial"
+      },
+      "question": "I'm following the tutorial: how do I save a Python list to a text file as JSON?",
+      "expected_answer": "Use json.dump(x, f) with f a text file opened for writing.",
+      "gold": [
+        {
+          "source_id": "tut-inputoutput",
+          "evidence_quote": "Another variant of the \"dumps()\" function, called \"dump()\", simply serializes the object to a *text file*.",
+          "pages": [
+            9
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d15",
+      "split": "dev",
+      "type": "metadata_filter",
+      "filter": {
+        "doc_type": "tutorial"
+      },
+      "question": "In the tutorial, what command creates a new virtual environment?",
+      "expected_answer": "Run the venv module as a script with a directory: python -m venv tutorial-env.",
+      "gold": [
+        {
+          "source_id": "tut-venv",
+          "evidence_quote": "To create a virtual environment, decide upon a directory where you want to place it, and run the \"venv\" module as a script with the directory path:",
+          "pages": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d16",
+      "split": "dev",
+      "type": "metadata_filter",
+      "filter": {
+        "doc_type": "library"
+      },
+      "question": "Library reference: which venv option gives the environment access to the system site-packages?",
+      "expected_answer": "--system-site-packages",
+      "gold": [
+        {
+          "source_id": "lib-venv",
+          "evidence_quote": "Give the virtual environment access to the system site-packages directory.",
+          "pages": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d17",
+      "split": "dev",
+      "type": "direct",
+      "question": "How can I validate and pretty-print JSON from the command line?",
+      "expected_answer": "Use `python -m json.tool`.",
+      "gold": [
+        {
+          "source_id": "lib-json",
+          "evidence_quote": "The \"json.tool\" module provides a simple command line interface to validate and pretty-print JSON objects.",
+          "pages": [
+            15
+          ]
+        },
+        {
+          "source_id": "lib-json",
+          "evidence_quote": "Using \"json.tool\" from the shell to validate and pretty-print:",
+          "pages": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d18",
+      "split": "dev",
+      "type": "condition",
+      "question": "What happens when json serializes float('nan') with allow_nan set to False?",
+      "expected_answer": "It raises ValueError (strict JSON compliance).",
+      "gold": [
+        {
+          "source_id": "lib-json",
+          "evidence_quote": "will result in a \"ValueError\", in strict compliance with the JSON specification.",
+          "pages": [
+            4
+          ]
+        },
+        {
+          "source_id": "lib-json",
+          "evidence_quote": "Otherwise, it will be a \"ValueError\" to encode such floats.",
+          "pages": [
+            11
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d19",
+      "split": "dev",
+      "type": "paraphrase",
+      "question": "How do I compute a property value once and keep it cached for the lifetime of the instance?",
+      "expected_answer": "Decorate the method with @functools.cached_property.",
+      "gold": [
+        {
+          "source_id": "lib-functools",
+          "evidence_quote": "Transform a method of a class into a property whose value is computed once and then cached as a normal attribute for the life of the instance.",
+          "pages": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d20",
+      "split": "dev",
+      "type": "direct",
+      "question": "On which argument does @singledispatch dispatch?",
+      "expected_answer": "On the type of the first argument.",
+      "gold": [
+        {
+          "source_id": "lib-functools",
+          "evidence_quote": "note that the dispatch happens on the type of the first argument",
+          "pages": [
+            11
+          ]
+        },
+        {
+          "source_id": "lib-functools",
+          "evidence_quote": "the generic function dispatches on the type of the first argument",
+          "pages": [
+            13
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d21",
+      "split": "dev",
+      "type": "condition",
+      "question": "If I don't pass fieldnames to csv.DictReader, where do the dictionary keys come from?",
+      "expected_answer": "From the first row of the file, which is then omitted from the results.",
+      "gold": [
+        {
+          "source_id": "lib-csv",
+          "evidence_quote": "If *fieldnames* is omitted, the values in the first row of file *f* will be used as the fieldnames and will be omitted from the results.",
+          "pages": [
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d22",
+      "split": "dev",
+      "type": "metadata_filter",
+      "filter": {
+        "doc_type": "library"
+      },
+      "question": "According to the library reference, should a virtual environment be committed to Git?",
+      "expected_answer": "No, it is not checked into source control systems such as Git.",
+      "gold": [
+        {
+          "source_id": "lib-venv",
+          "evidence_quote": "Not checked into source control systems such as Git.",
+          "pages": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t01",
+      "split": "test",
+      "type": "condition",
+      "question": "If both the try block and the finally block contain a return statement, which value is returned?",
+      "expected_answer": "The value from the finally clause's return statement.",
+      "gold": [
+        {
+          "source_id": "tut-errors",
+          "evidence_quote": "If a \"finally\" clause includes a \"return\" statement, the returned value will be the one from the \"finally\" clause's \"return\" statement, not the value from the \"try\" clause's \"return\" statement.",
+          "pages": [
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t02",
+      "split": "test",
+      "type": "direct",
+      "question": "Which locations is sys.path initialized from?",
+      "expected_answer": "The script's directory (or current directory), PYTHONPATH, and the installation-dependent default (site-packages).",
+      "gold": [
+        {
+          "source_id": "tut-modules",
+          "evidence_quote": "\"sys.path\" is initialized from these locations: * The directory containing the input script (or the current directory when no file is specified). * \"PYTHONPATH\" (a list of directory names, with the same syntax as the shell variable \"PATH\"). * The installation-dependent default",
+          "pages": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t03",
+      "split": "test",
+      "type": "condition",
+      "question": "How should a file be opened before passing it to csv.reader?",
+      "expected_answer": "With newline=''.",
+      "gold": [
+        {
+          "source_id": "lib-csv",
+          "evidence_quote": "If *csvfile* is a file object, it should be opened with \"newline=''\".",
+          "pages": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t04",
+      "split": "test",
+      "type": "condition",
+      "question": "What happens to lru_cache when maxsize is None?",
+      "expected_answer": "The LRU feature is disabled and the cache can grow without bound.",
+      "gold": [
+        {
+          "source_id": "lib-functools",
+          "evidence_quote": "If *maxsize* is set to \"None\", the LRU feature is disabled and the cache can grow without bound.",
+          "pages": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t05",
+      "split": "test",
+      "type": "metadata_filter",
+      "filter": {
+        "doc_type": "library"
+      },
+      "question": "In the library reference: why may a dictionary not equal the original after converting it to JSON and back?",
+      "expected_answer": "JSON keys are always str, so non-string keys are converted to strings.",
+      "gold": [
+        {
+          "source_id": "lib-json",
+          "evidence_quote": "Keys in key/value pairs of JSON are always of the type \"str\". When a dictionary is converted into JSON, all the keys of the dictionary are converted to strings.",
+          "pages": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t06",
+      "split": "test",
+      "type": "metadata_filter",
+      "filter": {
+        "doc_type": "tutorial"
+      },
+      "question": "Following the tutorial, how do I activate a virtual environment on Windows?",
+      "expected_answer": "Run tutorial-env\\Scripts\\activate.",
+      "gold": [
+        {
+          "source_id": "tut-venv",
+          "evidence_quote": "On Windows, run: tutorial-env\\Scripts\\activate",
+          "pages": [
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "validated_at": "2026-11-14T04:09:06+00:00",
+  "counts": {
+    "dev": 22,
+    "test": 6,
+    "with_filter": 6,
+    "test_with_filter": 2
+  },
+  "first_validated_at": "unknown: original timestamp overwritten by re-run of `src.run all`; the first validate ran before the first ingest/evaluate (first ingest log 2026-11-13T16:48Z)",
+  "preregistration_note": "Questions, splits, gold evidence, filters and selection criterion were written before any retrieval run and were not edited afterwards. From now on benchmark_sha256 is stored by validate and re-checked by evaluate (copied into results/summary.json).",
+  "benchmark_sha256": "98615fa2a513117bd479e5d6a377b9d5b358d111feb81a12a24ee382aaaf7d4c"
+}

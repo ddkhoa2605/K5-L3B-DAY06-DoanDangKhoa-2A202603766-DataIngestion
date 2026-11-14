@@ -1,0 +1,104 @@
+{
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "dimensions": 384,
+  "max_seq_length_tokens": 256,
+  "vector_store": "chromadb 1.5.9 PersistentClient",
+  "store_path": "starter/chroma_db",
+  "metric": "cosine (HNSW, approximate)",
+  "run_at": "2026-11-13T16:56:41+00:00",
+  "strategies": {
+    "A": {
+      "chunking": "fixed_size",
+      "size": 500,
+      "overlap": 50,
+      "filter": false,
+      "chunk_count": 597,
+      "total_chars": 270878,
+      "approx_tokens_chars_div4": 67719,
+      "len_min": 60,
+      "len_median": 500,
+      "len_mean": 453.7,
+      "len_max": 500,
+      "len_p90": 500,
+      "over_model_window_256tok_est": 0,
+      "time_chunk_s": 0.0,
+      "time_embed_s": 13.78,
+      "time_store_s": 0.95,
+      "vectors_reused_from_B": false,
+      "upsert_first": {
+        "before": 597,
+        "after": 597,
+        "stale_deleted": 0
+      },
+      "upsert_reload": {
+        "before": 597,
+        "after": 597,
+        "stale_deleted": 0
+      },
+      "reload_no_duplicates": true,
+      "cost_usd": 0.0
+    },
+    "B": {
+      "chunking": "by_section",
+      "max_size": 1000,
+      "overlap": 0,
+      "filter": false,
+      "chunk_count": 352,
+      "total_chars": 258785,
+      "approx_tokens_chars_div4": 64696,
+      "len_min": 127,
+      "len_median": 810,
+      "len_mean": 735.2,
+      "len_max": 1076,
+      "len_p90": 983,
+      "over_model_window_256tok_est": 7,
+      "time_chunk_s": 0.01,
+      "time_embed_s": 9.03,
+      "time_store_s": 0.68,
+      "vectors_reused_from_B": false,
+      "upsert_first": {
+        "before": 352,
+        "after": 352,
+        "stale_deleted": 0
+      },
+      "upsert_reload": {
+        "before": 352,
+        "after": 352,
+        "stale_deleted": 0
+      },
+      "reload_no_duplicates": true,
+      "cost_usd": 0.0
+    },
+    "C": {
+      "chunking": "by_section",
+      "max_size": 1000,
+      "overlap": 0,
+      "filter": true,
+      "chunk_count": 352,
+      "total_chars": 258785,
+      "approx_tokens_chars_div4": 64696,
+      "len_min": 127,
+      "len_median": 810,
+      "len_mean": 735.2,
+      "len_max": 1076,
+      "len_p90": 983,
+      "over_model_window_256tok_est": 7,
+      "time_chunk_s": 0.01,
+      "time_embed_s": 0.0,
+      "time_store_s": 0.61,
+      "vectors_reused_from_B": true,
+      "upsert_first": {
+        "before": 352,
+        "after": 352,
+        "stale_deleted": 0
+      },
+      "upsert_reload": {
+        "before": 352,
+        "after": 352,
+        "stale_deleted": 0
+      },
+      "reload_no_duplicates": true,
+      "cost_usd": 0.0
+    }
+  }
+}
